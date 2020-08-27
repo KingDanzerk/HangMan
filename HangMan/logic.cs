@@ -9,6 +9,7 @@ using System.Reflection;
 
 namespace HangMan
 {
+
     public enum GameState
     {
         Continue,
@@ -88,25 +89,19 @@ namespace HangMan
             string currentInput = input.ToLower();
             int counter = 0;
 
-            if (currentInput.Length == currentWord.Length) //If the user inputs the whole word, then this will initiate.
+            if (currentInput == currentWord)
             {
                 for (int i = 0; i < currentWord.Length; i++)
                 {
-                    for (int e = 0; e < currentInput.Length; e++)
-                    {
-                        if (currentInput[e] == currentWord[i])
-                        {
-                            _guessedLetters[i] = currentInput[e];
-                            counter += 1; //Using this counter to indicate if there was a match!
-                        }
-                    }
+                    _guessedLetters[i] = currentWord[i];
+                    counter += 1;
                 }
+            }
 
-                if (counter == 0)
-                {
-                    _trys += 1;
-                    _wrongLetters.Add(currentInput);
-                }
+            if (counter == 0)
+            {
+                _trys += 1;
+                _wrongLetters.Add(currentInput);
             }
 
             if (currentInput.Length == 1)
@@ -118,8 +113,6 @@ namespace HangMan
                         _guessedLetters[i] = currentInput[0];
                         counter += 1;
                     }
-
-                    
                 }
                 
                 if (counter == 0)
