@@ -163,6 +163,15 @@ namespace HangMan
             Console.SetCursorPosition(5, 5);
             Console.Write("Press R to restart!, press ENTER to end!");
         }
+        /// <summary>
+        /// Displays end screen
+        /// </summary>
+        public void ReplayScreenIfEnter()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(5, 5);
+            Console.WriteLine("Press ENTER again to end");
+        }
 
     }
 }

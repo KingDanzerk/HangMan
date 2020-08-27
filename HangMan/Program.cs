@@ -7,7 +7,6 @@ namespace HangMan
 {
     class Program
     {
-       
         static void Main(string[] args)
         {
             Console.SetWindowSize(50, 15);
@@ -27,7 +26,7 @@ namespace HangMan
                 if (gameStatus != GameState.Continue)
                 {
                     UserInterface.DisplayScreen(hangMan.WrongLetters, hangMan.Trys, hangMan.GuessedLetters, gameStatus, hangMan.CurrentWord);
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                     UserInterface.ReplayScreen();
                     keyInput = Console.ReadKey();
                     
@@ -51,18 +50,9 @@ namespace HangMan
                     }
                 }
             }
-            Console.Clear();
-            Console.SetCursorPosition(5, 5);
-            Console.WriteLine("Press ENTER again to end");
+            
+            UserInterface.ReplayScreenIfEnter();
             Console.ReadLine();
-        }
-
-        public static void ChartoString(char[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i]);
-            }
         }
     }
 }
